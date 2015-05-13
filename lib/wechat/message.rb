@@ -25,7 +25,11 @@ module Wechat
         @items=Array.new
       end
 
-      def item title: "title", description = nil, pic_url = nil, url = nil
+      def item ps = {}
+        title = ps[:title] || "title"
+        description = ps[:description]
+        pic_url = ps[:pic_url]
+        url = ps[:url]
         items << {:Title=> title, :Description=> description, :PicUrl=> pic_url, :Url=> url}.reject{|k,v| v.nil? }
       end
     end
